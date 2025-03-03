@@ -283,7 +283,7 @@ $conn->close();
         }
         
         .action-form button {
-            background-color: #000;
+            background-color: #2ecc71;  /* Changed from #000 to green */
             color: white;
             border: none;
             padding: 6px 12px;
@@ -293,7 +293,7 @@ $conn->close();
         }
         
         .action-form button:hover {
-            background-color: #333;
+            background-color: #27ae60;  /* Changed from #333 to darker green */
         }
         
         .alert {

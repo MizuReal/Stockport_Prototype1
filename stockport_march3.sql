@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 03, 2025 at 02:27 PM
+-- Generation Time: Mar 03, 2025 at 03:52 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -82,7 +82,7 @@ CREATE TABLE `customers` (
   `Phone` varchar(20) DEFAULT NULL,
   `Email` varchar(100) DEFAULT NULL,
   `Address` varchar(255) DEFAULT NULL,
-  `customer_status` varchar(32) NOT NULL,
+  `customer_status` varchar(32) NOT NULL DEFAULT 'pending',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
@@ -94,9 +94,11 @@ INSERT INTO `customers` (`CustomerID`, `CustomerName`, `Phone`, `Email`, `Addres
 (1, 'Can Company PH', '09123456789', 'cancompanyph@gmail.com', 'San Pedro City', 'approved', '2025-03-03 13:13:14'),
 (2, 'Biscuit Company', '09123456789', 'biscuitcompany@gmail.com', 'San Pedro City', 'approved', '2025-03-03 13:13:14'),
 (3, 'Storage Company', '09123456789', 'storagecompany@gmail.com', 'Block 1 Lot 2 Pretty City', 'approved', '2025-03-03 13:13:14'),
-(4, 'Suisei', '123123', 'suiseihololive@gmail.com', 'Bloc 63 Lot 52 Upper Bicutan Taguig City', 'rejected', '2025-03-03 13:13:14'),
-(5, 'Test', '123', '123123@gmail.com', 'poq', 'rejected', '2025-03-03 13:13:14'),
-(6, 'Test', '123', '123123@gmail.com', 'poq', 'rejected', '2025-03-03 13:13:14');
+(8, 'Bank Company', '09123456789', 'bankcompany@gmail.com', 'Block 1234567', 'approved', '2025-03-03 14:47:13'),
+(9, 'Bank Company', '09123456789', 'bankcompany@gmail.com', 'Block 1234567', 'approved', '2025-03-03 14:47:19'),
+(10, 'Bank Company', '09123456789', 'bankcompany@gmail.com', 'Block 1234567', 'approved', '2025-03-03 14:47:21'),
+(11, '123', '123', '123@gmai.com', '123', 'approved', '2025-03-03 14:47:57'),
+(12, '123', '123', '123@gmai.com', '123', 'approved', '2025-03-03 14:48:00');
 
 -- --------------------------------------------------------
 
@@ -122,7 +124,7 @@ CREATE TABLE `employees` (
 
 INSERT INTO `employees` (`EmployeeID`, `FirstName`, `LastName`, `Role`, `Phone`, `employeeEmail`, `employeePassword`, `HireDate`, `Status`) VALUES
 (1, 'Kim Jensen', 'Yebes', 'Admin', '09123456789', 'kimjensenyebes@gmail.com', '$2y$10$zgByliOTroett3FUGuvTbeK1mv0ERICQ.67kgsFql.xOXc6af8Cmm', '2025-02-17', 'Active'),
-(2, 'Christian Earl', 'Tapit', 'Employee', '09123456789', 'christianearltapit@gmail.com', '$2y$10$lwK9pau8gk4j5L2uOOwpWe3yUM.poSe8KhuTw1My7b5QU0rdgvNyO', '2025-02-25', 'Active');
+(2, 'Christian Earl', 'Tapit', 'Employee', '09123456789', 'christianearltapit@gmail.com', '$2y$10$lwK9pau8gk4j5L2uOOwpWe3yUM.poSe8KhuTw1My7b5QU0rdgvNyO', '2025-02-25', 'Inactive');
 
 -- --------------------------------------------------------
 
@@ -287,7 +289,7 @@ INSERT INTO `rawmaterials` (`MaterialID`, `MaterialName`, `SupplierID`, `Quantit
 (2, 'Steel', 2, 9980, 1500.00, '2025-02-28', 5000, 'Makati City', 'steel.jpg'),
 (3, 'Aluminum', 3, 10000, 1500.00, '2025-02-18', 5000, 'Caloocan City', 'aluminum.jpg'),
 (4, 'Stainless Steel', 4, 9769, 1500.00, '2025-02-18', 5000, 'Quezon City', 'stainlesssteel.jpg'),
-(5, 'Bronze', 4, 10000, 50.00, '2025-02-27', 5000, 'Quezon City', 'bronze_jpg');
+(5, 'Bronze', 4, 10000, 50.00, '2025-03-03', 5000, 'Quezon City', 'material_1741013499.jpg');
 
 -- --------------------------------------------------------
 
@@ -451,7 +453,7 @@ ALTER TABLE `customerorders`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `employees`
