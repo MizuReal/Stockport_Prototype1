@@ -10,10 +10,10 @@ $error = '';
 $success = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (isset($_POST['firstname'], $_POST['lastname'], $_POST['role'], $_POST['phone'], $_POST['employeeEmail'], $_POST['employeePassword'])) {
+    if (isset($_POST['firstname'], $_POST['lastname'], $_POST['phone'], $_POST['employeeEmail'], $_POST['employeePassword'])) {
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];
-        $role = $_POST['role'];
+        $role = 'Employee'; // Set default role as Employee
         $phone = $_POST['phone'];
         $email = $_POST['employeeEmail'];
         $password = $_POST['employeePassword'];
@@ -97,14 +97,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </div>
                 </div>
                 
-                <div class="form-group">
+                <div class="form-group" style="display: none;">
                     <label for="role"><i class="fas fa-id-badge"></i> Role</label>
-                    <select name="role" id="role" required>
-                        <option value="">Select your role</option>
-                        <option value="Employee">Employee</option>
-                        <option value="Manager">Manager</option>
-                        <option value="Admin">Administrator</option>
-                    </select>
+                    <input type="hidden" name="role" id="role" value="Employee">
                 </div>
                 
                 <div class="form-group">

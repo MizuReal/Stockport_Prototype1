@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 27, 2025 at 06:51 PM
+-- Generation Time: Mar 03, 2025 at 02:27 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -81,17 +81,22 @@ CREATE TABLE `customers` (
   `CustomerName` varchar(100) NOT NULL,
   `Phone` varchar(20) DEFAULT NULL,
   `Email` varchar(100) DEFAULT NULL,
-  `Address` varchar(255) DEFAULT NULL
+  `Address` varchar(255) DEFAULT NULL,
+  `customer_status` varchar(32) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`CustomerID`, `CustomerName`, `Phone`, `Email`, `Address`) VALUES
-(1, 'Can Company PH', '09123456789', 'cancompanyph@gmail.com', 'San Pedro City'),
-(2, 'Biscuit Company', '09123456789', 'biscuitcompany@gmail.com', 'San Pedro City'),
-(3, 'Storage Company', '09123456789', 'storagecompany@gmail.com', 'Block 1 Lot 2 Pretty City');
+INSERT INTO `customers` (`CustomerID`, `CustomerName`, `Phone`, `Email`, `Address`, `customer_status`, `created_at`) VALUES
+(1, 'Can Company PH', '09123456789', 'cancompanyph@gmail.com', 'San Pedro City', 'approved', '2025-03-03 13:13:14'),
+(2, 'Biscuit Company', '09123456789', 'biscuitcompany@gmail.com', 'San Pedro City', 'approved', '2025-03-03 13:13:14'),
+(3, 'Storage Company', '09123456789', 'storagecompany@gmail.com', 'Block 1 Lot 2 Pretty City', 'approved', '2025-03-03 13:13:14'),
+(4, 'Suisei', '123123', 'suiseihololive@gmail.com', 'Bloc 63 Lot 52 Upper Bicutan Taguig City', 'rejected', '2025-03-03 13:13:14'),
+(5, 'Test', '123', '123123@gmail.com', 'poq', 'rejected', '2025-03-03 13:13:14'),
+(6, 'Test', '123', '123123@gmail.com', 'poq', 'rejected', '2025-03-03 13:13:14');
 
 -- --------------------------------------------------------
 
@@ -446,7 +451,7 @@ ALTER TABLE `customerorders`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `employees`
